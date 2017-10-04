@@ -1,7 +1,5 @@
 package com.busyflights.model;
 
-import org.springframework.util.Assert;
-
 import java.time.LocalDateTime;
 
 /**
@@ -9,7 +7,7 @@ import java.time.LocalDateTime;
  * <p>
  * Created by gleisoncs on 01/29/2016.
  */
-public class ToughJetRequest extends Request{
+public class InsanairRequest extends Request{
 
     private String from;
     private String to;
@@ -24,10 +22,10 @@ public class ToughJetRequest extends Request{
 
     private int numberOfAdults;
 
-    public ToughJetRequest() {
+    public InsanairRequest() {
     }
 
-    public ToughJetRequest(String from, String to, LocalDateTime departureDate, LocalDateTime returnDate, int numberOfAdults) {
+    public InsanairRequest(String from, String to, LocalDateTime departureDate, LocalDateTime returnDate, int numberOfAdults) {
 
         this.from = from;
         this.to = to;

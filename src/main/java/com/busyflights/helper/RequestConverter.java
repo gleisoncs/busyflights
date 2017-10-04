@@ -3,10 +3,10 @@ package com.busyflights.helper;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.function.Function;
 
 import com.busyflights.model.BusyFlightsRequest;
 import com.busyflights.model.CrazyAirRequest;
+import com.busyflights.model.InsanairRequest;
 import com.busyflights.model.ToughJetRequest;
 
 /**
@@ -23,25 +23,30 @@ public class RequestConverter {
 		return LocalDateTime.parse(iso, formatter);
 	}
 
-	public static Function<BusyFlightsRequest, CrazyAirRequest> mapBusyFlightsToCrazyAirRequest = new Function<BusyFlightsRequest, CrazyAirRequest>() {
-		@Override
-		public CrazyAirRequest apply(BusyFlightsRequest request) {
-			return new CrazyAirRequest(request.getOrigin(), 
-					request.getDestination(),
-					convertToISO8601(request.getDepartureDate()), 
-					convertToISO8601(request.getReturnDate()),
-					request.getNumberOfPassengers());
-		}
-	};
+    public static CrazyAirRequest toCrazyAirRequest(final BusyFlightsRequest r) {
+        return new CrazyAirRequest(
+                r.getOrigin(), 
+                r.getDestination(),
+                convertToISO8601(r.getDepartureDate()), 
+                convertToISO8601(r.getReturnDate()),
+                r.getNumberOfPassengers());
+    }
 
-	public static Function<BusyFlightsRequest, ToughJetRequest> mapBusyFlightsToToughJetRequest = new Function<BusyFlightsRequest, ToughJetRequest>() {
-		@Override
-		public ToughJetRequest apply(BusyFlightsRequest request) {
-			return new ToughJetRequest(request.getOrigin(), 
-					request.getDestination(),
-					convertToISO8601(request.getDepartureDate()), 
-					convertToISO8601(request.getReturnDate()),
-					request.getNumberOfPassengers());
-		}
-	};
+    public static ToughJetRequest toThoughJetRequest(final BusyFlightsRequest r) {
+        return new ToughJetRequest(
+                r.getOrigin(), 
+                r.getDestination(),
+                convertToISO8601(r.getDepartureDate()), 
+                convertToISO8601(r.getReturnDate()),
+                r.getNumberOfPassengers());
+    }
+    
+    public static InsanairRequest toRyanairRequest(final BusyFlightsRequest r) {
+        return new InsanairRequest(
+                r.getOrigin(), 
+                r.getDestination(),
+                convertToISO8601(r.getDepartureDate()), 
+                convertToISO8601(r.getReturnDate()),
+                r.getNumberOfPassengers());
+    }
 }

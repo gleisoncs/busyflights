@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * <p>
  * Created by gleisoncs on 01/29/2016.
  */
-public class BusyFlightsResponse implements Comparable<BusyFlightsResponse> {
+public class BusyFlightsResponse extends Response implements Comparable<BusyFlightsResponse> {
 
 	private String airline;
 	private String supplier;

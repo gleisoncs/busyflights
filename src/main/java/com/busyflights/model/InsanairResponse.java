@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * <p>
  * Created by gleisoncs on 01/29/2016.
  */
-public class ToughJetResponse extends Response{
+public class InsanairResponse extends Response{
 
     private String carrier;
 
@@ -18,10 +18,10 @@ public class ToughJetResponse extends Response{
     private String departureAirportName;
     private String arrivalAirportName;
 
-    public ToughJetResponse() {
+    public InsanairResponse() {
     }
 
-    public ToughJetResponse(String carrier, BigDecimal basePrice, BigDecimal tax, BigDecimal discount, String departureAirportName, String arrivalAirportName) {
+    public InsanairResponse(String carrier, BigDecimal basePrice, BigDecimal tax, BigDecimal discount, String departureAirportName, String arrivalAirportName) {
         this.carrier = carrier;
         this.basePrice = basePrice;
         this.tax = tax;

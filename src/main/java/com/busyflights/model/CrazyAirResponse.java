@@ -8,19 +8,15 @@ import java.time.format.DateTimeFormatter;
  * <p>
  * Created by gleisoncs on 01/29/2016.
  */
-public class CrazyAirResponse {
+public class CrazyAirResponse extends Response{
 
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 
     private String airline;
-
     private String price;
-
     private String cabinclass;
-
     private String departureAirportCode;
     private String destinationAirportCode;
-
     private String departureDate;
     private String arrivalDate;
 

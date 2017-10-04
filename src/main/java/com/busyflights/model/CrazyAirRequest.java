@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
  * <p>
  * Created by gleisoncs on 01/29/2016.
  */
-public class CrazyAirRequest {
+public class CrazyAirRequest extends Request {
 
     private String origin;
     private String destination;
@@ -26,10 +26,6 @@ public class CrazyAirRequest {
     }
 
     public CrazyAirRequest(String origin, String destination, LocalDateTime departureDate, LocalDateTime returnDate, int numberOfPassengers) {
-
-        Assert.isTrue(origin.length() == 3, "must be 3 letter IATA code(eg. LHR, AMS)");
-        Assert.isTrue(destination.length() == 3, "must be 3 letter IATA code(eg. LHR, AMS)");
-
         this.origin = origin;
         this.destination = destination;
         this.departureDate = formatter.format(departureDate);

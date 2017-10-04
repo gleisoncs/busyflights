@@ -8,6 +8,7 @@ import java.util.function.Function;
 
 import com.busyflights.model.BusyFlightsResponse;
 import com.busyflights.model.CrazyAirResponse;
+import com.busyflights.model.InsanairResponse;
 import com.busyflights.model.ToughJetResponse;
 
 /**
@@ -20,7 +21,7 @@ public class ResponseConverter {
 	private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
 			.withZone(ZoneOffset.UTC);
 
-	public static String toISO8601(final LocalDateTime dateTime) {
+	public static String convertToISO8601(final LocalDateTime dateTime) {
 		return dateTime.format(formatter);
 	}
 
@@ -32,8 +33,8 @@ public class ResponseConverter {
 					new BigDecimal(crazyAirResponse.getPrice()), 
 					crazyAirResponse.getDepartureAirportCode(),
 					crazyAirResponse.getDestinationAirportCode(),
-					toISO8601(CrazyAirResponse.getLocalDateTime(crazyAirResponse.getDepartureDate())),
-					toISO8601(CrazyAirResponse.getLocalDateTime(crazyAirResponse.getArrivalDate())));
+					convertToISO8601(CrazyAirResponse.getLocalDateTime(crazyAirResponse.getDepartureDate())),
+					convertToISO8601(CrazyAirResponse.getLocalDateTime(crazyAirResponse.getArrivalDate())));
 		}
 	};
 
@@ -45,6 +46,19 @@ public class ResponseConverter {
 					toughJetResponse.getBasePrice().add(toughJetResponse.getTax()).subtract(toughJetResponse.getDiscount()),
 					toughJetResponse.getDepartureAirportName(), 
 					toughJetResponse.getArrivalAirportName(), 
+					null, 
+					null);
+		}
+	};
+	
+	public static Function<InsanairResponse, BusyFlightsResponse> mapInsanairResponseToBusyFlightsResponse = new Function<InsanairResponse, BusyFlightsResponse>() {
+		@Override
+		public BusyFlightsResponse apply(InsanairResponse insanairResponse) {
+			return new BusyFlightsResponse(insanairResponse.getCarrier(), 
+					"Insanair",
+					insanairResponse.getBasePrice().add(insanairResponse.getTax()).subtract(insanairResponse.getDiscount()),
+					insanairResponse.getDepartureAirportName(), 
+					insanairResponse.getArrivalAirportName(), 
 					null, 
 					null);
 		}

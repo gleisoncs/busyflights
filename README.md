@@ -22,7 +22,13 @@ Send a POST request will result in a response with a new list of BusyFlightsResp
 	
 	Params
 	
-	"LHR", "TMS", "2017-01-29T08:40:00Z", "2017-02-15T12:40:00Z", "2"
+	{
+  		"origin": "latam",
+  		"destination": "TMS",
+  		"departureDate": "2017-01-29T08:40:00Z",
+  		"returnDate": "2017-02-15T12:40:00Z",
+  		"numberOfPassengers": "2"
+	}
 	
 ***For a valid board ID (HTTP 200 Status)***
 
