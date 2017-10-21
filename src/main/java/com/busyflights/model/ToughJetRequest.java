@@ -1,7 +1,5 @@
 package com.busyflights.model;
 
-import org.springframework.util.Assert;
-
 import java.time.LocalDateTime;
 
 /**
