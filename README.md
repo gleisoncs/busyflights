@@ -94,6 +94,8 @@ The second one is for running the jar package (located in the target directory a
 
     java -jar busyflights-1.0.jar -Dserver.port=8090 (optional param)
 
+## curl
+curl -i --header "Content-Type: application/json" --request POST --data "@apitest.json" http://localhost:8090/search
 
 ## Next Steps / TODOs
 
