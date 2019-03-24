@@ -97,6 +97,15 @@ The second one is for running the jar package (located in the target directory a
 ## curl
 curl -i --header "Content-Type: application/json" --request POST --data "@apitest.json" http://localhost:8090/search
 
+@apitest.json
+{
+  	"origin": "latam",
+  	"destination": "TMS",
+  	"departureDate": "2017-01-29T08:40:00Z",
+  	"returnDate": "2017-02-15T12:40:00Z",
+  	"numberOfPassengers": "2"
+}
+
 ## Next Steps / TODOs
 
 - Change POST to GET to call services
